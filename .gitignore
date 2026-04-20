@@ -1,0 +1,14 @@
+# --- editor/os ---
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# --- scratch ---
+whater.txt
+
+# --- node --- (WS1-FE will extend this section)
+# (populated by WS1-FE scaffold step)
+
+# --- python --- (WS1-PY will extend this section)
+# (populated by WS1-PY scaffold step)
