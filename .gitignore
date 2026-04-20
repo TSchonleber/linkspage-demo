@@ -42,3 +42,9 @@ htmlcov/
 *.egg-info/
 .env
 .vercel
+
+# --- rust / anchor ---
+target/
+.anchor/
+**/*.rs.bk
+test-ledger/
