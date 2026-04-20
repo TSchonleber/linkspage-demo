@@ -1,0 +1,10 @@
+/Users/r4vager/Desktop/Test-app/target/sbpf-solana-solana/release/deps/solana_frozen_abi-9cfa3681bee2d471.d: /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/lib.rs /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/abi_digester.rs /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/abi_example.rs /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/hash.rs
+
+/Users/r4vager/Desktop/Test-app/target/sbpf-solana-solana/release/deps/libsolana_frozen_abi-9cfa3681bee2d471.rlib: /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/lib.rs /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/abi_digester.rs /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/abi_example.rs /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/hash.rs
+
+/Users/r4vager/Desktop/Test-app/target/sbpf-solana-solana/release/deps/libsolana_frozen_abi-9cfa3681bee2d471.rmeta: /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/lib.rs /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/abi_digester.rs /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/abi_example.rs /Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/hash.rs
+
+/Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/lib.rs:
+/Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/abi_digester.rs:
+/Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/abi_example.rs:
+/Users/r4vager/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-frozen-abi-1.18.26/src/hash.rs:

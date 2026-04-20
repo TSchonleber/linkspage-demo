@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "linkspage",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body style={{ fontFamily: "system-ui, sans-serif" }}>
-        <div>{children}</div>
+        <Providers>
+          <div>{children}</div>
+        </Providers>
       </body>
     </html>
   );

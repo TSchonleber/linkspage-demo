@@ -16,6 +16,10 @@ def create_app() -> FastAPI:
     from backend.routes.pages import router as pages_router
 
     app.include_router(pages_router)
+
+    from backend.routes.crash import router as crash_router
+
+    app.include_router(crash_router)
     return app
 
 
