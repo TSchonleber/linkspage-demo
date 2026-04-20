@@ -1,0 +1,5 @@
+fastapi==0.115.*
+pydantic==2.9.*
+libsql-client==0.3.*
+nanoid==2.0.*
+python-multipart==0.0.*

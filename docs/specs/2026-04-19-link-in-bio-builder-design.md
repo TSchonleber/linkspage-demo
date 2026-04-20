@@ -289,3 +289,4 @@ Frontend-only concern (see original spec). Each theme is a set of CSS variables 
 9. Stretch goals if time (PNG export / QR / OG image) (10 min)
 
 Total: ~65 min + buffer.
+
