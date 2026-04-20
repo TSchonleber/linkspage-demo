@@ -1,6 +1,7 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
+import Image from "next/image";
 
 import { usePageStore } from "@/lib/store";
 
@@ -118,10 +119,13 @@ export function ProfileEditor() {
           <div className="flex items-center gap-3">
             <div className="flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-slate-100 text-sm font-semibold text-slate-700">
               {avatar ? (
-                <img
+                <Image
                   alt="Avatar preview"
                   className="size-full object-cover"
+                  height={56}
                   src={avatar}
+                  unoptimized
+                  width={56}
                 />
               ) : (
                 initialsFromName(name)

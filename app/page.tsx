@@ -4,111 +4,65 @@ import { AddLinkForm } from "@/components/editor/AddLinkForm";
 import { LinksEditor } from "@/components/editor/LinksEditor";
 import { ProfileEditor } from "@/components/editor/ProfileEditor";
 import { ThemePicker } from "@/components/editor/ThemePicker";
+import { BioPage } from "@/components/preview/BioPage";
+import { ExportPngButton } from "@/components/share/ExportPngButton";
+import { PublishButton } from "@/components/share/PublishButton";
+import { QrButton } from "@/components/share/QrButton";
+import { Toaster } from "@/components/ui/sonner";
 import { usePageStore } from "@/lib/store";
-import { themeClassName } from "@/lib/themes";
-import type { Page } from "@/lib/types";
-
-function initialsFromName(name: string): string {
-  const parts = name.trim().split(/\s+/).filter(Boolean).slice(0, 2);
-  if (parts.length === 0) {
-    return "U";
-  }
-  return parts.map((part) => part[0]?.toUpperCase() ?? "").join("");
-}
-
-function PreviewPane({ page }: { page: Page }) {
-  return (
-    <div className={`theme-shell ${themeClassName(page.theme)}`}>
-      <article className="theme-card mx-auto w-full max-w-md p-6">
-        <div className="mb-4 flex justify-center">
-          {page.avatar ? (
-            <img
-              alt={`${page.name || "User"} avatar`}
-              className="size-20 rounded-full border border-black/10 object-cover"
-              src={page.avatar}
-            />
-          ) : (
-            <div className="flex size-20 items-center justify-center rounded-full border border-black/10 bg-white/60 text-lg font-semibold">
-              {initialsFromName(page.name)}
-            </div>
-          )}
-        </div>
-
-        <div className="text-center">
-          <h2 className="theme-name text-2xl font-semibold">
-            {page.name || "Your Name"}
-          </h2>
-          {page.bio ? (
-            <p className="theme-bio mt-2 text-sm">{page.bio}</p>
-          ) : (
-            <p className="theme-bio mt-2 text-sm opacity-70">
-              Add a short bio to tell people what you do.
-            </p>
-          )}
-        </div>
-
-        <div className="mt-6 space-y-2">
-          {page.links.filter((link) => link.enabled).length === 0 ? (
-            <div className="rounded-[var(--radius)] border border-dashed border-black/20 p-3 text-center text-sm opacity-70">
-              Your enabled links will appear here.
-            </div>
-          ) : (
-            page.links
-              .filter((link) => link.enabled)
-              .map((link) => (
-                <a
-                  className="theme-link block rounded-[var(--radius)] px-4 py-3 text-center text-sm font-medium no-underline"
-                  href={link.url || "#"}
-                  key={link.id}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {link.label || "Untitled Link"}
-                </a>
-              ))
-          )}
-        </div>
-      </article>
-    </div>
-  );
-}
 
 export default function Home() {
-  const page = usePageStore((state) => state.page);
+  const page = usePageStore((s) => s.page);
 
   return (
-    <main className="min-h-screen bg-slate-100 px-4 py-5 lg:px-6">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-5">
-        <header className="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm">
-          <div>
-            <h1 className="text-sm font-semibold tracking-wide text-slate-900">
-              Link-in-Bio Builder
-            </h1>
-            <p className="text-xs text-slate-500">
-              Edit on the left, preview on the right.
-            </p>
+    <>
+      {/* Toast notifications — layout.tsx has no Toaster, so mount it here */}
+      <Toaster position="bottom-right" richColors />
+
+      <div className="flex min-h-screen flex-col bg-[#f5f5f4]">
+        {/* Top bar */}
+        <header className="sticky top-0 z-20 flex h-12 items-center justify-between border-b border-stone-200 bg-white/90 px-5 backdrop-blur-sm">
+          <span className="text-sm font-semibold tracking-tight text-stone-900">
+            linkspage
+          </span>
+
+          <div className="flex items-center gap-2">
+            <QrButton />
+            <ExportPngButton />
+            <PublishButton />
           </div>
-          <button
-            className="inline-flex h-9 items-center justify-center rounded-md border border-slate-300 bg-white px-4 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
-            type="button"
-          >
-            Publish
-          </button>
         </header>
 
-        <div className="grid gap-5 lg:grid-cols-[420px_minmax(0,1fr)]">
-          <aside className="max-h-[calc(100vh-9rem)] space-y-4 overflow-y-auto pr-1">
-            <ProfileEditor />
-            <ThemePicker />
-            <LinksEditor />
-            <AddLinkForm />
+        {/* Two-column editor + preview */}
+        <div className="grid flex-1 grid-cols-1 lg:grid-cols-[440px_1fr]">
+          {/* Left — editor (scrollable) */}
+          <aside className="overflow-y-auto border-r border-stone-200 bg-white">
+            <div className="space-y-5 p-6">
+              <ProfileEditor />
+              <ThemePicker />
+              <LinksEditor />
+              <AddLinkForm />
+            </div>
           </aside>
 
-          <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-            <PreviewPane page={page} />
+          {/* Right — live preview */}
+          <section className="flex flex-col">
+            {/* Preview header strip */}
+            <div className="flex h-10 items-center border-b border-stone-200 px-5">
+              <span className="text-xs font-medium uppercase tracking-widest text-stone-400">
+                Preview
+              </span>
+            </div>
+
+            {/* BioPage fills remaining height and centers the card */}
+            <div className="flex flex-1 items-start justify-center overflow-y-auto p-8">
+              <div className="w-full max-w-md">
+                <BioPage page={page} />
+              </div>
+            </div>
           </section>
         </div>
       </div>
-    </main>
+    </>
   );
 }

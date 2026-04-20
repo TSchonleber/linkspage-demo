@@ -41,3 +41,4 @@ env/
 htmlcov/
 *.egg-info/
 .env
+.vercel

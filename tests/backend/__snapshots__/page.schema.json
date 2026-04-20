@@ -1,0 +1,94 @@
+{
+  "$defs": {
+    "Link": {
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "default": true,
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "id": {
+          "maxLength": 64,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "url": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "url"
+      ],
+      "title": "Link",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "avatar": {
+      "default": "",
+      "maxLength": 500000,
+      "title": "Avatar",
+      "type": "string"
+    },
+    "bio": {
+      "default": "",
+      "maxLength": 160,
+      "title": "Bio",
+      "type": "string"
+    },
+    "links": {
+      "items": {
+        "$ref": "#/$defs/Link"
+      },
+      "maxItems": 50,
+      "title": "Links",
+      "type": "array"
+    },
+    "name": {
+      "maxLength": 80,
+      "title": "Name",
+      "type": "string"
+    },
+    "theme": {
+      "default": "minimal",
+      "enum": [
+        "minimal",
+        "neon",
+        "sunset",
+        "paper",
+        "retro",
+        "dark"
+      ],
+      "title": "Theme",
+      "type": "string"
+    },
+    "version": {
+      "const": 1,
+      "default": 1,
+      "enum": [
+        1
+      ],
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "title": "Page",
+  "type": "object"
+}

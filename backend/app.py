@@ -13,6 +13,9 @@ def create_app() -> FastAPI:
         return {"ok": True}
 
     # routers registered by later workstreams
+    from backend.routes.pages import router as pages_router
+
+    app.include_router(pages_router)
     return app
 
 
